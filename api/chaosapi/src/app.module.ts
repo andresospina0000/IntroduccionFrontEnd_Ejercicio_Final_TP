@@ -13,6 +13,7 @@ import { ProductsModule } from './products/products.module';
       useFactory: () => ({
         type: 'sqlite' as const,
         database: 'chaosdb.sqlite',
+        autoLoadEntities: true,
       }),
     }),
     ProductsModule

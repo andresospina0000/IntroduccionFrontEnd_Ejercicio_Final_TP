@@ -20,4 +20,7 @@ export class Product {
 
     @Column()
     oferta: number;
+
+    @Column()
+    tipo: number;
 }

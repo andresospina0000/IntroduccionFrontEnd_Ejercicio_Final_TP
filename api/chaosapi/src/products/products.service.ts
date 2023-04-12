@@ -8,23 +8,36 @@ export class ProductsService {
 
   constructor(private readonly productsRepository: ProductsRepository) { }
 
-  create(createProductDto: CreateProductDto) {
-    return this.productsRepository.create(createProductDto);
+  async create(createProductDto: CreateProductDto) {
+    return await this.productsRepository.create(createProductDto);
   }
 
-  findAll() {
-    return this.productsRepository.findAll();
+  async findAll() {
+    return await this.productsRepository.findAll();
   }
 
-  findOne(id: number) {
+  async filterByCategory(category: number) {
+    return await this.productsRepository.filterByCategory(category);
+  }
+
+
+  async filterByBrand(brand: string) {
+    return await this.productsRepository.filterByBrand(brand);
+  }
+
+  async filterBySale() {
+    return await this.productsRepository.filterBySale();
+  }
+
+  async findOne(id: number) {
     return `This action returns a #${id} product`;
   }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
+  async update(id: number, updateProductDto: UpdateProductDto) {
     return `This action updates a #${id} product`;
   }
 
-  remove(id: number) {
+  async remove(id: number) {
     return `This action removes a #${id} product`;
   }
 }

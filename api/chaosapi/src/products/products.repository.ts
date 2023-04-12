@@ -53,4 +53,20 @@ export class ProductsRepository {
             }
         )
     }
+
+    async filterByCategory(categoria: number): Promise<Product[]> {
+        return await this.productsRepository.findBy(
+            {
+                tipo: categoria
+            }
+        )
+    }
+
+    async filterBySale(): Promise<Product[]> {
+        return await this.productsRepository.findBy(
+            {
+                oferta: 1
+            }
+        )
+    }
 }
