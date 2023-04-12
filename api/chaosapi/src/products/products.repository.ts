@@ -38,12 +38,12 @@ export class ProductsRepository {
                 ...product
             }
         );
-
+        console.log(oldProduct)
         if (!oldProduct) {
             throw new NotFoundException(`Producto ${product.nombre} no encontrado.`);
         }
 
-        return await this.productsRepository.save(product);
+        return await this.productsRepository.save(oldProduct);
     }
 
     async filterByBrand(brand: string): Promise<Product[]> {

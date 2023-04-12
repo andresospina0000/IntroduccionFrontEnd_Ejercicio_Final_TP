@@ -9,6 +9,7 @@ export class ProductsService {
   constructor(private readonly productsRepository: ProductsRepository) { }
 
   async create(createProductDto: CreateProductDto) {
+    createProductDto.marca = createProductDto.marca.toLowerCase().trim();
     return await this.productsRepository.create(createProductDto);
   }
 
@@ -34,7 +35,8 @@ export class ProductsService {
   }
 
   async update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+    updateProductDto.marca = updateProductDto.marca.toLowerCase().trim();
+    return this.productsRepository.update(id, updateProductDto);
   }
 
   async remove(id: number) {
