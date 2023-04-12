@@ -1,3 +1,9 @@
+INSERT INTO "tipos" ("id", "descripcion") VALUES ('1', 'tabla');
+INSERT INTO "tipos" ("id", "descripcion") VALUES ('2', 'ruedas');
+INSERT INTO "tipos" ("id", "descripcion") VALUES ('3', 'rodamientos');
+INSERT INTO "tipos" ("id", "descripcion") VALUES ('4', 'trucks');
+INSERT INTO "tipos" ("id", "descripcion") VALUES ('5', 'zapatos');
+
 INSERT INTO "products" ("id", "nombre", "marca", "descripcion", "imgPath", "oferta", "tipo", "precio") VALUES ('1', 'Tabla Old Times', 'powell peralta', 'Tabla profesional exportada.', '/assets/img/productos/tabla_peralta.jpeg', '1', '1', '150');
 INSERT INTO "products" ("id", "nombre", "marca", "descripcion", "imgPath", "oferta", "tipo", "precio") VALUES ('2', 'Tabla Colombia Terror', 'skateterror', 'Tabla profesional con logo del escudo de Colombia.', '/assets/img/productos/tabla_skateterror.jpeg', '0', '1', '100');
 INSERT INTO "products" ("id", "nombre", "marca", "descripcion", "imgPath", "oferta", "tipo", "precio") VALUES ('3', 'Ruedas Spitfire 80’s 54mm', 'spitfire', 'Ruedas Spitfire 80’s. Medida 54mm – Forma Conica – Dureza 80. Perfectas para rodar cualquier superficie.', '/assets/img/productos/ruedas_spitfire.jpg', '0', '2', '30');
