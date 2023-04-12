@@ -1,0 +1,20 @@
+.headerMainLogoContainer {
+    display: grid;
+    justify-content: center;
+}
+
+.headerLogo {
+    max-width: 100%;
+    height: auto;
+}
+
+
+body {
+    justify-content: space-around;
+    font-family: 'Sedgwick Ave Display', cursive;
+}
+
+#productsContainer {
+    display: grid;
+    justify-content: space-between;
+}
