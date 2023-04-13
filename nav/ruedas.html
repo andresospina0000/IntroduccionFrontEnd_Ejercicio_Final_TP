@@ -100,58 +100,48 @@
 </header>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/productos/sample.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/productos/sample.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/productos/sample.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                <div class="card" style="width: 18rem;">
-                    <img src="assets/img/productos/sample.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="productsPanel" class="row"></div>
 </body>
 
 </html>
+
+<script>
+
+    getAllProductsUI();
+
+    //API Integration
+    async function getAllProductsAsync() {
+        const response = await fetch('http://localhost:3000/products/categoria/2');
+        const data = await response.json();
+        return data;
+    }
+
+    //Dom Manipulation
+    async function getAllProductsUI() {
+
+        let card = '';
+        const products = await getAllProductsAsync();
+
+        const productsPanel = document.getElementById('productsPanel');
+        productsPanel.innerHTML = '';
+
+        products.forEach((product) => {
+
+            product.imgPath = product.imgPath ? product.imgPath : 'assets/img/noImage.webp';
+
+            cards = `<div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 m-2">
+                        <div class="card" style="width: 18rem;">
+                            <img src="${product.imgPath}" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">${product.nombre}</h5>
+                                <p class="card-text">${product.descripcion}</p>
+                                <h6>$${product.precio}.00</h6>
+                                <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            </div>
+                        </div>
+                    </div>`;
+            productsPanel.insertAdjacentHTML("afterbegin", cards);
+        });
+    }
+
+</script>
