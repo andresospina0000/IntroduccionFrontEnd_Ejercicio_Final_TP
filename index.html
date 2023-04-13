@@ -89,8 +89,11 @@
                                             Gestion
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Tus pedidos</a></li>
-                                            <li><a class="dropdown-item" href="#">Devoluciones</a></li>
+                                            <li><a class="dropdown-item" href="nav/gestion/Creacion.html">Creacion de
+                                                    Productos</a></li>
+                                            <li><a class="dropdown-item"
+                                                    href="nav/gestion/Actualizacion.html">Actualizacion de Productos</a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
@@ -150,7 +153,7 @@
         products.forEach((product) => {
 
             product.imgPath = product.imgPath ? product.imgPath : 'assets/img/noImage.webp';
-            
+
             cards = `<div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 m-2">
                         <div class="card" style="width: 18rem;">
                             <img src="${product.imgPath}" class="card-img-top">
